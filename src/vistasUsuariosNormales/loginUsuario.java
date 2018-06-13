@@ -11,11 +11,20 @@ import databases.DataBases;
  *
  * @author Usersone
  */
+import databases.*;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 public class loginUsuario extends javax.swing.JFrame {
 
     /**
      * Creates new form ventanaprincipal
      */
+    DataBases b;
+    String nombre;
+    String contrasenia;
+
     public loginUsuario() {
         initComponents();
         setLocationRelativeTo(null);
@@ -118,10 +127,12 @@ public class loginUsuario extends javax.swing.JFrame {
     }//GEN-LAST:event_nameInActionPerformed
 
     private void INGRESARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_INGRESARActionPerformed
-            String nombre = nameIn.getText();
-        String contrasenia= contraseniaIn.getText();
-        DataBases d = new DataBases(nombre,contrasenia);
-       
+        nombre = nameIn.getText();
+        contrasenia = contraseniaIn.getText();
+        b = new DataBases(nombre, contrasenia);
+
+        vistaGeneral v = new vistaGeneral();
+        v.setVisible(true);
     }//GEN-LAST:event_INGRESARActionPerformed
 
     private void contraseniaInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contraseniaInActionPerformed
@@ -130,7 +141,8 @@ public class loginUsuario extends javax.swing.JFrame {
 
     private void REGRESARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_REGRESARActionPerformed
         // TODO add your handling code here:
-         this.setVisible(false);
+        this.setVisible(false);
+        
     }//GEN-LAST:event_REGRESARActionPerformed
 
     /**
@@ -170,11 +182,11 @@ public class loginUsuario extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton INGRESAR;
+    public javax.swing.JButton INGRESAR;
     private javax.swing.JButton REGRESAR;
-    private javax.swing.JTextField contraseniaIn;
+    public javax.swing.JTextField contraseniaIn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField nameIn;
+    public javax.swing.JTextField nameIn;
     // End of variables declaration//GEN-END:variables
 }

@@ -6,17 +6,16 @@
 package ControlMulta;
 
 //import databases.vistasUsuariosNormales.*;
-import databases.DataBases;
+import databases.*;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JFrame;
 
-/**
- *
- * @author Usersone
- */
-public class loginControlaMulta extends javax.swing.JFrame {
-
-    /**
-     * Creates new form ventanaprincipal
-     */
+public class loginControlaMulta extends javax.swing.JFrame { 
+    DataBases b;
+    String nombre;
+    String contrasenia;
     public loginControlaMulta() {
         initComponents();
         setLocationRelativeTo(null);
@@ -119,10 +118,17 @@ public class loginControlaMulta extends javax.swing.JFrame {
     }//GEN-LAST:event_nameInActionPerformed
 
     private void INGRESARActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_INGRESARActionPerformed
-        String nombre = nameIn.getText();
-        String contrasenia = contraseniaIn.getText();
-        DataBases d = new DataBases(nombre, contrasenia);
-
+        nombre = nameIn.getText();
+        contrasenia = contraseniaIn.getText();
+        b = new DataBases(nombre, contrasenia);
+        
+        JFrame f = new JFrame();
+        VentanaConsultas v = new VentanaConsultas();
+        v.setbase(b);
+        f.add(v);
+        f.setVisible(true);
+        f.setSize(500,450);
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
     }//GEN-LAST:event_INGRESARActionPerformed
 
     private void contraseniaInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contraseniaInActionPerformed

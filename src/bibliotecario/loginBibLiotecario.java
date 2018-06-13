@@ -8,7 +8,10 @@ package bibliotecario;
 //import databases.vistasUsuariosNormales.*;
 
 import databases.DataBases;
-
+import databases.*;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 /**
  *
  * @author Usersone
@@ -123,7 +126,8 @@ public class loginBibLiotecario extends javax.swing.JFrame {
             String nombre = nameIn.getText();
         String contrasenia= contraseniaIn.getText();
         DataBases d = new DataBases(nombre,contrasenia);
-       
+       VentanaConsultasBibliotecario bibliotecario=new VentanaConsultasBibliotecario();
+       bibliotecario.setVisible(true);
     }//GEN-LAST:event_INGRESARActionPerformed
 
     private void contraseniaInActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_contraseniaInActionPerformed
@@ -191,6 +195,6 @@ public class loginBibLiotecario extends javax.swing.JFrame {
     private javax.swing.JTextField contraseniaIn;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JTextField nameIn;
+    public javax.swing.JTextField nameIn;
     // End of variables declaration//GEN-END:variables
 }
